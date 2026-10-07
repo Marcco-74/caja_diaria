@@ -28,6 +28,7 @@ class MovimientoCaja(models.Model):
     )
     fecha_operacion = models.DateField(auto_now_add=True)
     fecha_hora_registro = models.DateTimeField(auto_now_add=True)
+    
 
     class Meta:
         db_table = 'movimiento_caja'
