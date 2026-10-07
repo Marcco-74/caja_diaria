@@ -3,7 +3,8 @@ import axios from 'axios';
 import { Plus, Minus, ArrowDownCircle, ArrowUpCircle, Wallet, RefreshCw } from 'lucide-react';
 
 //const API_URL = 'http://127.0.0.1:8000/api/';
-const API_URL = 'http://192.168.1.4:8000/api/';
+//const API_URL = 'http://192.168.1.4:8000/api/';
+const API_URL = import.meta.env.VITE_API_URL || 'https://caja-diaria-cdyq.onrender.com';
 
 export default function App() {
   const [monto, setMonto] = useState('0');
