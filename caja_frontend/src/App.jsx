@@ -29,7 +29,8 @@ export default function App() {
   const cargarMovimientos = async () => {
     try {
       setCargando(true);
-      const res = await axios.get(`${API_URL}movimientos/hoy/`);
+      //const res = await axios.get(`${API_URL}movimientos/hoy/`);
+      const res = await axios.get(`${API_URL}/api/movimientos/hoy/`);
       setMovimientos(res.data);
     } catch (error) {
       console.error("Error cargando datos:", error);
@@ -61,7 +62,8 @@ export default function App() {
     if (isNaN(valor) || valor <= 0) return;
 
     try {
-      await axios.post(`${API_URL}movimientos/`, {
+      //await axios.post(`${API_URL}movimientos/`, {
+      await axios.post(`${API_URL}/api/movimientos/`, {
         tipo: tipo,
         monto: valor,
         descripcion: descripcion.trim() || (tipo === 'INGRESO' ? 'Venta' : 'Gasto')
