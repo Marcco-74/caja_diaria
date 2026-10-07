@@ -7,7 +7,7 @@ import { Plus, Minus, ArrowDownCircle, ArrowUpCircle, Wallet, RefreshCw } from '
 const API_URL = import.meta.env.VITE_API_URL || 'https://caja-diaria-cdyq.onrender.com';
 
 const api = axios.create({
-  baseURL: API_URL,
+  baseURL: `${API_URL}/api/`, // <-- Importante el /api/ aquí
 });
 
 export default function App() {
