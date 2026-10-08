@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Configuración de la Base de Datos
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')),
+        default='sqlite:///db.sqlite3',
         conn_max_age=600,
-        ssl_require=True
+        ssl_require=False  # Desactiva ssl para entornos locales donde no se requiere SSL
     )
 }
 
