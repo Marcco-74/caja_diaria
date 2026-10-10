@@ -105,14 +105,14 @@ export default function App() {
           </div>
 
           {/* Fecha Operativa comercial */}
-          <p className="text-xs text-emerald-400 font-semibold capitalize text-center bg-slate-800/80 py-1 px-3 rounded-full">
+          <p className="text-sm  font-bold capitalize text-center bg-slate-800/80 py-1 px-3 rounded-full">
             📅 {hoyFecha}
           </p>
 
           {/* Saldo Líquido */}
           <div className="text-center py-1">
             <p className="text-xs text-slate-400 uppercase font-semibold">Ganancia del Día</p>
-            <p className="text-4xl font-extrabold text-emerald-400 mt-1">S/ {saldoCaja.toFixed(2)}</p>
+            <p className="text-3xl font-extrabold text-emerald-400 mt-1">S/ {saldoCaja.toFixed(2)}</p>
           </div>
 
           {/* Totales Secundarios */}
