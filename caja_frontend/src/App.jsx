@@ -105,7 +105,7 @@ export default function App() {
           </div>
 
           {/* Fecha Operativa comercial */}
-          <p className="text-sm  font-bold capitalize text-center bg-slate-800/80 py-1 px-3 rounded-full">
+          <p className="text-base  font-bold capitalize text-center bg-slate-800/80 py-1 px-3 rounded-full">
             📅 {hoyFecha}
           </p>
 
