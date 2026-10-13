@@ -34,7 +34,7 @@ class MovimientoCajaViewSet(viewsets.ModelViewSet):
                 if not CierreDiario.objects.filter(fecha=fecha).exists():
                     movs_dia = MovimientoCaja.objects.filter(fecha_operacion=fecha)
                     ingresos = movs_dia.filter(tipo='INGRESO').aggregate(total=Sum('monto'))['total'] or 0
-                    gastos = movs_dia.filter(tipo='GASTO').aggregate(total=Sum('monto'))['total'] or 0
+                    gastos = movs_dia.filter(tipo='EGRESO').aggregate(total=Sum('monto'))['total'] or 0
                     saldo = ingresos - gastos
 
                     CierreDiario.objects.create(
