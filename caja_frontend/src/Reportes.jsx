@@ -38,23 +38,22 @@ export default function Reportes({ cierres = [] }) {
   }, [datosFiltrados]);
 
   return (
-    <div className="p-4 max-w-lg mx-auto text-slate-100 space-y-5">
+    <div className="p-4 max-w-lg mx-auto text-slate-100 space-y-4">
       
-      {/* Selector de Filtro */}
-      <div className="flex justify-between items-center bg-slate-900 p-3 rounded-2xl border border-slate-800">
-        <span className="text-sm font-bold text-slate-300">📊 Reportes</span>
-        <div className="flex bg-slate-800 p-1 rounded-xl gap-1">
+      {/* Selector de Filtro (Sin cabecera duplicada) */}
+      <div className="flex justify-center bg-slate-900 p-2 rounded-2xl border border-slate-800">
+        <div className="flex bg-slate-800 p-1 rounded-xl gap-1 w-full justify-between">
           {['semana', 'mes', 'todos'].map((tipo) => (
             <button
               key={tipo}
               onClick={() => setFiltro(tipo)}
-              className={`px-3 py-1 text-xs font-semibold rounded-lg capitalize transition-all ${
+              className={`flex-1 py-1.5 text-xs font-semibold rounded-lg capitalize transition-all ${
                 filtro === tipo 
                   ? 'bg-emerald-500 text-slate-950 shadow' 
                   : 'text-slate-400 hover:text-white'
               }`}
             >
-              {tipo === 'semana' ? 'Semana' : tipo === 'mes' ? 'Mes' : 'Todo'}
+              {tipo === 'semana' ? 'Última Semana' : tipo === 'mes' ? 'Este Mes' : 'Histórico'}
             </button>
           ))}
         </div>
@@ -64,23 +63,23 @@ export default function Reportes({ cierres = [] }) {
       <div className="grid grid-cols-3 gap-2">
         <div className="bg-slate-900 border border-slate-800 p-3 rounded-xl text-center">
           <p className="text-[10px] text-slate-400 uppercase font-semibold">Ingresos</p>
-          <p className="text-base font-extrabold text-emerald-400 mt-1">S/ {kpis.ingresos.toFixed(2)}</p>
+          <p className="text-sm sm:text-base font-extrabold text-emerald-400 mt-1">S/ {kpis.ingresos.toFixed(2)}</p>
         </div>
 
         <div className="bg-slate-900 border border-slate-800 p-3 rounded-xl text-center">
           <p className="text-[10px] text-slate-400 uppercase font-semibold">Egresos</p>
-          <p className="text-base font-extrabold text-rose-400 mt-1">S/ {kpis.egresos.toFixed(2)}</p>
+          <p className="text-sm sm:text-base font-extrabold text-rose-400 mt-1">S/ {kpis.egresos.toFixed(2)}</p>
         </div>
 
         <div className="bg-slate-900 border border-slate-800 p-3 rounded-xl text-center">
           <p className="text-[10px] text-slate-400 uppercase font-semibold">Ganancia</p>
-          <p className="text-base font-extrabold text-blue-400 mt-1">S/ {kpis.saldo.toFixed(2)}</p>
+          <p className="text-sm sm:text-base font-extrabold text-blue-400 mt-1">S/ {kpis.saldo.toFixed(2)}</p>
         </div>
       </div>
 
       {/* Gráfico Comparativo */}
       <div className="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
-        <h3 className="text-xs font-bold text-slate-400 mb-3 uppercase tracking-wider">
+        <h3 className="text-xs font-bold text-slate-400 mb-3 uppercase tracking-wider text-center">
           Ingresos vs Egresos por Día
         </h3>
 
