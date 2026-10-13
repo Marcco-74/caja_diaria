@@ -109,12 +109,12 @@ export default function App() {
         {/* CABECERA PRINCIPAL CON NAVEGACIÓN */}
         <div className="bg-slate-900 text-white p-5 rounded-b-3xl shadow-lg space-y-3 shrink-0">
           <div className="flex justify-between items-center">
+            {/* Icono de la billetera */}
             <div className="flex items-center gap-2">
               <Wallet className="w-6 h-6 text-emerald-400" />
-              <h1 className="text-lg font-bold">Caja Chica</h1>
             </div>
 
-            {/* Pestañas de Navegación */}
+            {/* Pestañas de Navegación corregidas */}
             <div className="flex bg-slate-800 p-1 rounded-xl gap-1 border border-slate-700">
               <button
                 onClick={() => setVista('caja')}
@@ -124,7 +124,7 @@ export default function App() {
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                <LayoutDashboard className="w-3.5 h-3.5" /> Caja
+                <LayoutDashboard className="w-3.5 h-3.5" /> Caja Chica
               </button>
               <button
                 onClick={() => setVista('reportes')}
@@ -134,7 +134,7 @@ export default function App() {
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
-                <BarChart3 className="w-3.5 h-3.5" /> Reportes
+                <BarChart3 className="w-3.5 h-3.5" /> Reporte
               </button>
             </div>
           </div>
