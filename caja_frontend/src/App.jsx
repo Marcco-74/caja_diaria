@@ -117,7 +117,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-900 flex justify-center items-center p-0 md:p-6">
-      <div className="w-full max-w-md bg-slate-100 min-h-screen md:min-h-[850px] md:max-h-[90vh] md:rounded-3xl shadow-2xl flex flex-col justify-between font-sans pb-6 overflow-hidden border-0 md:border border-slate-700">
+      <div className="w-full max-w-md bg-slate-100 min-h-screen md:h-[90vh] md:rounded-3xl shadow-2xl flex flex-col justify-between font-sans pb-4 overflow-hidden border-0 md:border border-slate-700">
         
         {/* CABECERA PRINCIPAL CON NAVEGACIÓN */}
         <div className="bg-slate-900 text-white p-5 rounded-b-3xl shadow-lg space-y-3 shrink-0">
