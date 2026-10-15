@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Plus, Minus, ArrowDownCircle, ArrowUpCircle, Wallet, RefreshCw, LayoutDashboard, BarChart3 } from 'lucide-react';
+import { Plus, Minus, ArrowDownCircle, ArrowUpCircle, Wallet, RefreshCw, LayoutDashboard, BarChart3, Trash2 } from 'lucide-react';
 import Reportes from './Reportes';
 
 const API_URL = import.meta.env.VITE_API_URL || 'https://caja-diaria-cdyq.onrender.com';
@@ -88,6 +88,19 @@ export default function App() {
       cargarMovimientos();
     } catch (error) {
       alert("Error al guardar el movimiento");
+    }
+  };
+
+  // Eliminar movimiento por ID
+  const eliminarMovimiento = async (id) => {
+    if (window.confirm("¿Estás segura de eliminar este registro?")) {
+      try {
+        await api.delete(`movimientos/${id}/`);
+        cargarMovimientos(); // Recarga la lista y actualiza los totales inmediatamente
+      } catch (error) {
+        console.error("Error al eliminar el movimiento:", error);
+        alert("No se pudo eliminar el movimiento");
+      }
     }
   };
 
@@ -243,7 +256,7 @@ export default function App() {
               </button>
             </div>
 
-            {/* HISTORIAL DEL DÍA */}
+            {/* HISTORIAL DEL DÍA CON BOTÓN DE ELIMINAR */}
             <div className="px-4 space-y-2 overflow-hidden flex flex-col">
               <h3 className="text-xs font-bold text-slate-500 uppercase px-1">Historial de hoy ({movimientos.length})</h3>
               <div className="space-y-2 max-h-36 overflow-y-auto pr-1">
@@ -255,9 +268,20 @@ export default function App() {
                         {new Date(m.fecha_hora_registro).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                       </p>
                     </div>
-                    <span className={`font-black text-sm ${m.tipo === 'INGRESO' ? 'text-emerald-600' : 'text-rose-600'}`}>
-                      {m.tipo === 'INGRESO' ? '+' : '-'} S/ {parseFloat(m.monto).toFixed(2)}
-                    </span>
+                    
+                    <div className="flex items-center gap-3">
+                      <span className={`font-black text-sm ${m.tipo === 'INGRESO' ? 'text-emerald-600' : 'text-rose-600'}`}>
+                        {m.tipo === 'INGRESO' ? '+' : '-'} S/ {parseFloat(m.monto).toFixed(2)}
+                      </span>
+                      {/* Botón de eliminar con icono de tacho */}
+                      <button
+                        onClick={() => eliminarMovimiento(m.id_movimiento)}
+                        className="p-1.5 text-rose-500 hover:bg-rose-50 active:bg-rose-100 rounded-lg transition-colors"
+                        title="Eliminar registro"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
                   </div>
                 ))}
               </div>
